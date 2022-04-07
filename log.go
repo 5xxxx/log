@@ -35,6 +35,10 @@ func NewLog(opts ...options.Option) Logger {
 	}
 }
 
+func Log() Logger {
+	return logger
+}
+
 func (l *logs) configFields(fields ...zap.Field) []zap.Field {
 	if l.config.LogType == options.Elastic {
 		fields = append(fields, zap.String("app_name", l.config.AppName))
